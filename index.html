@@ -1,8 +1,43 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>DreamBooth</title>
+  <meta charset="utf-8">
+  <meta name="description" content="FaceStudio: Put Your Face Everywhere in Seconds">
+  <meta name="keywords" content="FaceStudio">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> FaceStudio: Put Your Face Everywhere in Seconds</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
   <style>
     .gif-row {
       display: flex;
@@ -31,54 +66,133 @@
       /* Ensure the GIFs are responsive */
     }
   </style>
-  <link href="./DreamBooth_files/style.css" rel="stylesheet">
-  <script type="text/javascript" src="./DreamBooth_files/jquery.mlens-1.0.min.js"></script>
-  <script type="text/javascript" src="./DreamBooth_files/jquery.js"></script>
 </head>
 
-<!-- Yucheng Han1,2∗ Rui Wang2∗† Chi Zhang2∗ ‡ Juntao Hu2
-Pei Cheng2 Bin Fu2 Hanwang Zhang -->
-<!-- {yucheng002, hanwangzhang}@ntu.edu.sg
-2 {raywwang, johnczhang, jetthu, brianfu}@tencent.com -->
+<!-- 
+[**Yucheng Han**$^{\ast}$](http://tingxueronghua.github.io), [**Chi Zhang**$^{\ast\dag}$](https://icoz69.github.io/), [Xin Chen](https://chenxin.tech/), [Xu Yang](https://cse.seu.edu.cn/2021/1126/c23024a392593/page.htm), [Zhibin Wang](https://openreview.net/profile?id=~Billzb_Wang1)
+<br>
+[Gang Yu](https://www.skicyyu.org/), [Bin Fu](https://openreview.net/profile?id=~BIN_FU2), [Hanwang Zhang](https://personal.ntu.edu.sg/hanwangzhang/) -->
 
 <body>
-  <div class="content">
-    <h1><strong>EMMA: Your Text-to-Image Diffusion Model Can Secretly Accept Multi-Modal Prompts</strong></h1>
-    <p id="authors"><span><a href="https://xxx.github.io/"></a></span><a
-        href="https://tingxueronghua.github.io/">Yucheng Han*</a>
-      <a href="https://wrong.wang/">Rui Wang*&dagger;
-      </a> <a href="https://icoz69.github.io/">Chi Zhang*&loz;</a> <a>Juntao
-        Hu</a> <a>Pei Cheng</a> <a>Bin
-        Fu</a> <a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a> <br>
-      <br>
-      <span style="font-size: 24px">Nanyang Technological University, Tencent
-      </span>
-      <br>
-      <span style="font-size: 16px">*Equal contribution, &dagger; Project lead, &loz; Corresponding Author</span><br>
-      <span style="font-size: 16px">You can contact Rui Wang for further details.</span><br>
-    </p>
-    <br>
-    <!-- <img src="./DreamBooth_files/teaser_static.jpg" class="teaser-gif" style="width:100%;"> -->
-    <div style="display: flex; justify-content: center; align-items: center;">
-      <video id="teaser" controls="" loop="" playsinline="">
-        <source src="./DreamBooth_files/video_teaser_480.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
-      </video>
+  <!-- Yucheng Han, Chi Zhang, Xin Chen, Xu Yang, Billzb Wang, Gang Yu, BIN FU, Hanwang Zhang  -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">EMMA: Your Text-to-Image Diffusion Model Can Secretly Accept Multi-Modal Prompts
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://tingxueronghua.github.io/">Yucheng Han*</a>,</span>
+              <span class="author-block">
+                <a href="https://wrong.wang/">Rui Wang*&dagger;</a>,</span>
+              <span class="author-block">
+                <a href="https://icoz69.github.io/">Chi Zhang*&#10022;</a>,</span>
+              <span class="author-block">
+                  <a href="https://tencentqqgylab.github.io/EMMA">Juntao Hu</a>,</span>
+              <span class="author-block">
+                    <a href="https://tencentqqgylab.github.io/EMMA">Pei Cheng</a>,</span>
+              <span class="author-block">
+                <a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a></span>
+              
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Nanyang Technological University, Tencent</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup></sup>(* Equal contributions, &dagger; Project Lead, &#10022 Corresponding Author)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2406.09162.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2406.09162"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://tencentqqgylab.github.io/EMMA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://icoz69.github.io/facestudio/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Demo (Coming Soon)</span>
+                  </a> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <br>
-    <!-- <h3 style="text-align:center"><em>It’s like a photo booth, but once the subject is captured, it can be synthesized
-        wherever your dreams take you…</em></h3> -->
-    <font size="+2">
-      <!-- <p style="text-align: center;">
-        <a href="https://arxiv.org/abs/2208.12242" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
-        (<font color="#C70039">new!</font>) <a href="https://github.com/google/dreambooth" target="_blank">[Dataset]</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="DreamBooth_files/bibtex.txt" target="_blank">[BibTeX]</a>
-      </p> -->
-    </font>
-  </div>
-  <div class="content">
-    <h2 style="text-align:center;">Abstract</h2>
-    <p>Recent advancements in image generation have enabled the creation of high-quality images from text conditions.
+  </section>
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <!-- <figure>
+                <img src="./static/teaser.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+                <figcaption>
+                  <strong>Capability demonstration of FaceStudio.</strong> Our model support various applications and can preserve the subject’s
+identity in the synthesized images with high fidelity.
+                </figcaption>
+              </figure> -->
+              <div style="display: flex; justify-content: center; align-items: center;">
+                <video id="teaser" controls="" loop="" playsinline="">
+                  <source src="./DreamBooth_files/video_teaser_480.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent advancements in image generation have enabled the creation of high-quality images from text conditions.
       However, when facing multi-modal conditions, such as text combined with reference appearances, existing methods
       struggle to balance multiple conditions effectively, typically showing a preference for one modality over others.
       To address this challenge, we introduce EMMA, a novel image generation model accepting multi-modal prompts built
@@ -93,136 +207,334 @@ Pei Cheng2 Bin Fu2 Hanwang Zhang -->
       eliminating the need for additional training with mixed multi-modal prompts. Extensive experiments demonstrate the
       effectiveness of EMMA in maintaining high fidelity and detail in generated images, showcasing its potential as a
       robust solution for advanced multi-modal conditional image generation tasks.
-    </p>
-  </div>
-  <!-- <div class="content">
-    <h2>Background</h2>
-    <p> Recent studies have explored image generation using multi-modal prompts, which require guidance from multiple
-      sources. For instance, IP-Adapter uses both image prompts and textual instructions through cross-attention
-      modules. Similarly, FaceStudio uses stylized images, facial images, and textual prompts for personalized portrait
-      generation. These techniques have led to applications like subject-driven and personalized image generation, and
-      artistic portrait creation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+  
 
-      However, different strategies are employed for multi-modal prompts, and the general architecture for such image
-      generation remains unclear. A key challenge is balancing various conditions during the generation process, as
-      current methods may favor certain conditions. For example, IP-Adapter, which uses text and image features, often
-      predominantly relies on image features due to model limitations. This results in a bias towards easier conditions
-      and neglects more complex ones.
 
-      Additionally, the scarcity of multi-modal training datasets in specialized domains exacerbates this issue. For
-      subject-driven image generation, models like Kosmos-g and BootPig use cropped object images as conditions and
-      ground truth, which can lead to a simple copy-paste functionality and ignore textual conditions. The lack of
-      suitable training datasets and limitations in model architecture hinder achieving a balanced approach for image
-      generation with multiple conditions.</p>
-    <br>
-  </div> -->
-  <div class="content">
-    <h2>Approach</h2>
-    <p>Our proposed EMMA is built upon the state-of-the-art text-conditioned
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our proposed EMMA is built upon the state-of-the-art text-conditioned
       diffusion model ELLA, which trains a transformer-like module, named Perceiver Resampler, to
       connect text embeddings from pre-trained text encoders and pre-trained diffusion models for better text-guided
       image generation.
       ELLA has strong text-to-image generation ability, and our proposed EMMA could merge information from other
       modalities into text features for
-      guidance. </p>
-    <br>
-    <img class="summary-img" src="./DreamBooth_files/emma_pipeline.png" style="width:100%;"> <br>
-    <p>In detail, to control the image generation process by modalities beyond text, EMMA incorporates our proposed
+      guidance.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+  
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <figure>
+                <img src="./DreamBooth_files/emma_pipeline.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"></h2>
+          <div class="content has-text-justified">
+            <p>
+              In detail, to control the image generation process by modalities beyond text, EMMA incorporates our proposed
       Assemblable Gated Perceiver Resampler (AGPR), which leverages cross-attention to inject information from
       additional modalities beyond texts. In our design, the AGPR blocks are strategically interleaved with the
       blocks
       of the Perceiver Resampler of ELLA. This arrangement ensures an effective integration of multi-modal
       information.
       During training, we freeze the raw modules of ELLA to maintain the control ability of text conditions.
-    </p>
-    <br>
-    <img class="summary-img" src="./DreamBooth_files/emma_methods.png" style="width:80%;"> <br>
-    <p>Notably, EMMA is inherently designed to handle multi-modal prompts as conditions, allowing for the
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <figure>
+                <img src="./DreamBooth_files/emma_methods.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"></h2>
+          <div class="content has-text-justified">
+            <p>
+              Notably, EMMA is inherently designed to handle multi-modal prompts as conditions, allowing for the
       straightforward combination of different multi-modal configurations. This is achieved by the gate mechanism in
       our
       AGPR, which could control the way of injecting information from other modalities into the textual features.
       This
       advantage enables diverse and complex inputs to be synthesized into a unified generation framework without the
-      need for additional training.</p>
-    <br><img class="summary-img" src="./DreamBooth_files/emma_ensemble_methods.png" style="width:80%;"> <br><br>
-  </div>
-  <div class="content">
-    <h2>Image generation with different conditions
-    </h2>
-    <p>The generated images of EMMA under various conditions, including text-only, text + X, and text + composite
-      conditions, showcase different individuals behaving differently in various scenes. Meanwhile, the details of the
-      characters are preserved, ensuring the final results adhere to the text instructions.</p>
-    <img class="summary-img" src="./DreamBooth_files/final_visualization.png" style="width:80%;">
-  </div>
-  <div class="content">
-    <h2>Image Generation with text + portrait conditions
-    </h2>
-    <p>Here, we present additional images generated by EMMA under text + portrait conditions. Various portraits, each
-      with unique features, adhere to the same prompts, demonstrating our model's excellent control over text
-      conditioning and its ability to preserve individual identities.</p>
-    <img class="summary-img" src="./DreamBooth_files/res_main.png" style="width:90%;">
-  </div>
-  <div class="content">
-    <h2>Image Generation with text + portrait conditions using ToonYou</h2>
-    <p>Given a text prompt and a portrait, our proposed EMMA can integrate with various diffusion models to generate
-      images in different styles. Here are the images created using EMMA in conjunction with ToonYou.</p>
-    <br>
-    <img class="summary-img" src="./DreamBooth_files/res_toonyou.png" style="width:90%;"> <br>
-  </div>
-  <div class="content">
-    <h2>Image Generation with text + portrait conditions using AnimateDiff</h2>
-    <p>Given a portrait and a prompt, our proposed EMMA, combined with the AnimateDiff diffusion model, can generate
-      images that preserve portrait details while adhering to text instructions.</p> <br>
-    <div class="gif-row">
-      <img src="./DreamBooth_files/woman_blue_dress.gif">
-      <img src="./DreamBooth_files/woman_green_dress.gif">
-      <img src="./DreamBooth_files/woman_purple_dress.gif">
+      need for additional training.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
     </div>
-    <br>
-    <!-- <img class="summary-img" src="./DreamBooth_files/res_video.png" style="width:90%;"> <br> -->
-  </div>
-  <div class="content">
-    <h2>Story Telling</h2>
-    <p>Images generated by our EMMA with portrait conditions. Two sets of images are generated for two separate stories.
-      The first set of images is about a mailing woman chased by a dog. The second set of images is about a man finding
-      treasures.</p>
-    <br>
-    <img class="summary-img" src="./DreamBooth_files/story_diffusion.png" style="width:90%;"> <br>
-  </div>
-  <!-- <div class="content">
-    <h2>Societal Impact</h2>
-    <p>This project aims to provide users with an effective tool for synthesizing personal subjects (animals,
-      objects)
-      in different contexts. While general text-to-image models might be biased towards specific attributes when
-      synthesizing images from text, our approach enables the user to get a better reconstruction of their desirable
-      subjects. On contrary, malicious parties might try to use such images to mislead viewers. This is a common
-      issue,
-      existing in other generative models approaches or content manipulation techniques. Future research in
-      generative
-      modeling, and specifically of personalized generative priors, must continue investigating and revalidating
-      these
-      concerns.</p>
-    <br>
-  </div> -->
-  <!-- <div class="content">
-    <h2>BibTex</h2>
-    <code> @article{ruiz2022dreambooth,<br>
-  &nbsp;&nbsp;title={DreamBooth: Fine Tuning Text-to-image Diffusion Models for Subject-Driven Generation},<br>
-  &nbsp;&nbsp;author={Ruiz, Nataniel and Li, Yuanzhen and Jampani, Varun and Pritch, Yael and Rubinstein, Michael and Aberman, Kfir},<br>
-  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2208.12242},<br>
-  &nbsp;&nbsp;year={2022}<br>
-  } </code>
-  </div> -->
-  <!-- <div class="content" id="acknowledgements">
-    <p><strong>Acknowledgements</strong>:
-      We thank Rinon Gal, Adi Zicher, Ron Mokady, Bill Freeman, Dilip Krishnan, Huiwen Chang and Daniel Cohen-Or for
-      their valuable inputs that helped improve this work, and to Mohammad Norouzi, Chitwan Saharia and William Chan
-      for
-      providing us with their support and the pretrained models of Imagen. Finally, a special thank you to David
-      Salesin
-      for his feedback, advice and for his support for the project.
-    </p>
-  </div> -->
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <figure>
+                <img src="./DreamBooth_files/emma_ensemble_methods.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Image Generation with text + portrait conditions</h2>
+          <div class="content has-text-justified">
+            <p>Here, we present additional images generated by EMMA under text + portrait conditions. Various portraits, each
+              with unique features, adhere to the same prompts, demonstrating our model's excellent control over text
+              conditioning and its ability to preserve individual identities.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <figure>
+                <img src="./DreamBooth_files/res_main.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Image Generation with text + portrait conditions using ToonYou</h2>
+          <div class="content has-text-justified">
+            <p>Given a text prompt and a portrait, our proposed EMMA can integrate with various diffusion models to generate
+              images in different styles. Here are the images created using EMMA in conjunction with ToonYou.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <figure>
+                <img src="./DreamBooth_files/res_toonyou.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Image Generation with text + portrait conditions using AnimateDiff</h2>
+          <div class="content has-text-justified">
+            <p>Given a portrait and a prompt, our proposed EMMA, combined with the AnimateDiff diffusion model, can generate
+              images that preserve portrait details while adhering to text instructions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <div class="gif-row">
+                <img src="./DreamBooth_files/woman_blue_dress.gif">
+                <img src="./DreamBooth_files/woman_green_dress.gif">
+                <img src="./DreamBooth_files/woman_purple_dress.gif">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Story Telling</h2>
+          <div class="content has-text-justified">
+            <p>Images generated by our EMMA with portrait conditions. Two sets of images are generated for two separate stories.
+              The first set of images is about a mailing woman chased by a dog. The second set of images is about a man finding
+              treasures.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Teaser. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <div class="center-image">
+              <figure>
+                <img src="./DreamBooth_files/story_diffusion.png" class="interpolation-image"
+                  alt="Interpolate start reference image." />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@misc{han2024emma,
+  title={EMMA: Your Text-to-Image Diffusion Model Can Secretly Accept Multi-Modal Prompts}, 
+  author={Yucheng Han and Rui Wang and Chi Zhang and Juntao Hu and Pei Cheng and Bin Fu and Hanwang Zhang},
+  year={2024},
+  eprint={2406.09162},
+  archivePrefix={arXiv},
+  primaryClass={id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+      </code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/pdf/2406.09162.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://tencentqqgylab.github.io/EMMA" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>
